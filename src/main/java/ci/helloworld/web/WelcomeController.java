@@ -43,7 +43,7 @@ public class WelcomeController {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("index");
 		
-		model.addObject("title", helloWorldService.getTitle(name));
+		model.addObject("title!", helloWorldService.getTitle(name));
 		model.addObject("msg", helloWorldService.getDesc());
 		
 		return model;
