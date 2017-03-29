@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'jetty'
+apply plugin: 'jacoco'
 
 // JDK 7
 sourceCompatibility = 1.7
@@ -11,6 +12,8 @@ repositories {
     mavenLocal()
     mavenCentral()
 }
+
+
 
 dependencies {
  
@@ -30,6 +33,15 @@ jettyRun{
 jettyRunWar{
 	contextPath = "spring4"
 	httpPort = 8084
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.enabled true
+        csv.enabled true
+        html.destination "${buildDir}/reports/coverage"
+    }
 }
 
 //For Eclipse IDE only
